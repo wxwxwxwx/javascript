@@ -92,20 +92,24 @@ var obj = new
 dom对象  dom集合
 
 ### 选取元素
-
-* var el = document.getElementById()
+ * var el = document.getElementById()
 * var el = document.getElementsByClassName()
 * var el = document.getElementsByTagName()
 * var el = document.getElenemtsByName()
-
+* var el = firstElementChild()
+* var el = lastElementChile()
+* var el = parentElement()
+* var el = childElementCount()
+* var el = nextElementSibling()
+* var el = previousSibling()
 ###  筛选元素
 
 * el.parentNode
 * el.childsNode
-* el.firseChild
+* el.firstChild
 * el.lastChild
 * el.nextSibling
-* el.
+* el.childNodes
 
 ###  操作样式
 
@@ -121,29 +125,42 @@ dom对象  dom集合
 * e.layerX
 * e.layerY
 * e.offsetTop
-* e.offsetY
+* e.offsetLeft
+* e.offsetparent
+* e.offsetWidth
+* e.offsetHeight
 * document.documentElement.clientX
 * document.documentElement.clientY
+* clientHeight
+* clientRight
+* clientTop
+* clientWidth
+
+* scrollHeight
+* scrollWidth
+* scrollTop
+* scrollLeft
 
 ###  操作属性
-* el.style.ClassName=""
-* el.style.Id=""
+*  el.style.ClassName=""
+*  el.style.Id=""
 *  e.style.widht
 *  e.style.height
-*  e.style.src
-*  e.style.title
-*  e.style.href
-*  e.style.margin
-*  e.style.padding
-*  e.style.position
-*  e.style.border
-
-
+*  align
+*  attributes
+*  hidden
+*  innerHTML
+*  innerText
+*  classList
+*  
 ###  节点操作
 
-* el.
-* el.ValueNode
-* el.TypeNode
+* el.nodeName
+* el.nodeValue
+* el.nodeType
+* el.priciousSibling
+* el.appendChild
+* insertBefore
 
 ###  其他
 
