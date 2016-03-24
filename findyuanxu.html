@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	.box{
+		width: 500px;
+		height: 500px;
+		margin:30px auto;
+		border:1px solid black;
+		position: relative;
+	}
+	.xiao{
+		width: 50px;
+		height: 60px;
+		position: absolute;
+		border: 1px solid black;
+		top: 0;
+		left: 0;
+		list-style: none;
+	}
+	li{
+		cursor:pointer;
+	}
+</style>
+<body>
+	<div class="box">
+		
+	</div>
+	<ul>
+		<li data-s="id">通过ID获取的</li>
+		<li data-s="tg">通过tagname获取的</li>
+		<li data-s="qr">通过querySelector获取的</li>
+		<li data-s="qa">通过querySelectorAll获取的</li>
+		<li data-s="cl">通过className获取的</li>
+	</ul>
+</body>
+<script type="text/javascript">
+var buju=function(){
+
+    el.style.left=Math.floor(Math.random()*450)+"px"
+    el.style.top=Math.floor(Math.random()*440)+"px"
+    //  els.style.left=Math.floor(Math.random()*450)+"px"
+    // els.style.top=Math.floor(Math.random()*440)+"px"
+}
+	var box=document.querySelector(".box")
+	var el=document.createElement("span")
+	el.className="xiao"
+	buju()
+	box.appendChild(el)
+	for(var i=0,el ;i<10;i++){
+	 el=document.createElement("li")
+	    el.className="xiao"
+	    
+   	buju()
+
+  	box.appendChild(el)
+	}
+ 	
+	var elss=box.nextElementSibling.children
+	for(var i=0;i<elss.length;i++){
+	elss[i].onclick=function(){
+        el.style.background="red"
+        // t=setTimeout(caozuo,500)
+		// 
+
+	}
+}
+// 	var caozuo=function{
+// 	box.innerHTML=""
+// } 
+</script>
+</html>

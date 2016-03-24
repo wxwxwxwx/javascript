@@ -89,79 +89,107 @@ var obj = new
 > window对象中有很多属性和方法
 > 这些属性和方法不用加window.就可以调用使用
 
-dom对象  dom集合
+>dom对象  dom集合
+
+>从document对象开始利用他的方法找出我们需要的元素，这种元素叫做(
+>dom元素或者是dom集合)
+
+ dom对象
+```javascript
+dom dx{
+	attributes:NameNodeMap
+}
+```
+js会有一个很大的对象来代表我们看到的那个元素
+
+ dom集合
+在一个类数组中对象中存储很多dom对象构成一个集合
+```javascript
+```
 
 ### 选取元素
- * var el = document.getElementById()
+
+
+* var el = document.createElement()
+* var el = document.getElementById()
+* var el = document.querySelector()//ie8
+
+
 * var el = document.getElementsByClassName()
 * var el = document.getElementsByTagName()
-* var el = document.getElenemtsByName()
-* var el = firstElementChild()
-* var el = lastElementChile()
-* var el = parentElement()
-* var el = childElementCount()
-* var el = nextElementSibling()
-* var el = previousSibling()
+* var el = document.getElenemtsByName()//表单元素
+* var el = document.querySelectorAll()//ie8
+经过这一步我们会得到一个dom元素或者dom集合
+
+
 ###  筛选元素
 
+从一个dom对象开始，根据逻辑关系再去寻找dom对
+>父元素
 * el.parentNode
-* el.childsNode
-* el.firstChild
-* el.lastChild
-* el.nextSibling
+* el.parentElement
+> 子元素
 * el.childNodes
+* el.children
+* el.firstChild
+* el.firstElement
+* el.lastChild
+* el.lastElement
+> 兄弟元素
+* el.nextSibling
+* el.nextElementSibling
+
+* el.preciousSibling
+* el.previousElementSibling
+
+
+
+
+
+
+###  操作属性(element)
+<div class="a" id="b"></div>
+*  el.setAttribute()
+*  el.getAttribute()
+*  el.removeAttribute()
+*  el.hasAttribute()
+
+*  el.ClassName=""
+*  el.Id=""
+*  el.classList
+
+###  节点操作(node)
+
+* el.appendChild()
+* el.removeChild()
+* el.insertBefore()
+* el.cloneNode()
+* el.replaceChild()
+
+###  获取信息(HTMLELEMENT)
+* e.offsetTop
+* e.offsetLeft
+* e.offsetParent//具有定位属性的父元素
+* e.offsetWidth
+* e.offsetHeight
+* e.getBoundingClietRect()//计算元素距离窗口位置
+* e.innerHTML
+* getComputedStyle(el,null).width//"100px"
 
 ###  操作样式
 
-* el.style
+* el.style(读取行内样式的值，设置行内样式的值)
 
+###  get和set在dom对象中的使用
 
-###  获取位置信息
-
-* el.current("attr",null).attr
-* el.getComputedStyle()
-* e.screenX
-* e.scrrenY
-* e.layerX
-* e.layerY
-* e.offsetTop
-* e.offsetLeft
-* e.offsetparent
-* e.offsetWidth
-* e.offsetHeight
-* document.documentElement.clientX
-* document.documentElement.clientY
-* clientHeight
-* clientRight
-* clientTop
-* clientWidth
-
-* scrollHeight
-* scrollWidth
-* scrollTop
-* scrollLeft
-
-###  操作属性
-*  el.style.ClassName=""
-*  el.style.Id=""
-*  e.style.widht
-*  e.style.height
-*  align
-*  attributes
-*  hidden
-*  innerHTML
-*  innerText
-*  classList
-*  
-###  节点操作
-
-* el.nodeName
-* el.nodeValue
-* el.nodeType
-* el.priciousSibling
-* el.appendChild
-* insertBefore
-
+```javascript
+var obj = {
+a:1,
+b:2,
+set c (x){ console.log(111)},
+get c (){return 5;}
+}
+```
 ###  其他
 
 
