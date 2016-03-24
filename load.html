@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="animate.js"></script>
+</head>
+<script type="text/javascript">
+	window.onload=function(){
+	var floor=document.getElementsByClassName(".floor")
+	console.log("floor")
+    var flag=true;
+    var flag1=true;
+    var flag2=true;
+	var floorarr=[]
+	for(var i=0;i<floor.length;i++){
+     floorarr.push(floor[i].offsetTop)
+	}
+
+	var cH=document.documentElement.clientHeight;
+	window.onscroll=function(){
+
+             var obj=document.body.scrollTop?document.body:document.documentElement          
+             var tops=obj.scrollTop
+             for(var i=0;i<floor.length;i++){
+		    if(tops+cH>=floorarr[i]+100){
+			   var imgs=allgain("img",floor[i])
+				for(var j=0;j<imgs.length;j++){
+					imgs[j].src=imgs[j].title
+				
+			
+		}
+	}
+}
+if(!flag){
+			return
+		}
+for(var i=0;i<floor.length;i++){
+	    
+		    if(tops+cH/2>=floorarr[i]){
+			for(var j=0;j<lis.length;j++){
+					// imgs[j].src=imgs[j].title
+				lis[j].style.background="#f4f4f4"
+			
+		}
+		// lis[k].style.background="red"
+		lis[i].style.background="red"
+	}
+}
+ if(tops>=500){
+ 	if(flag1){ 
+        animate(search,{top:0})
+ 		animate(bank,{opacity:1},function(){flag2=true});
+ 		flag1=false;
+ 	}
+	
+}else{
+	if(flag2){
+		animate(search,{top:-40})
+	animate(bank,{opacity:0},function(){flag1=true;})
+	flag2=false;
+}
+}
+}
+//搜索
+var search=document.getElementsByClassName(".top")[0]
+
+
+var bank=document.getElementsByTagName(".bank")[0]
+console.log(bank)
+bank.onclick=function(){
+var obj=document.body.scrollTop?document.body:document.documentElement 
+	obj.scrollTop=0;
+}
+// var obj=document.body.scrollTop?document.body:document.documentElement 
+// var tops=obj.scrollTop
+// if(tops>=500){
+// 	animate(bank,{opacity:1});
+// }else{
+// 	animate(bank,{opacity:0})
+// }
+
+
+//楼层跳转
+
+var jump=document.getElementsByClassName(".jump")[0]
+var lis=jump.getElementsByClassName("li",jump)
+console.log(lis)
+var jH=jump.offsetHeight;
+// console.log(jH)
+jump.style.top=(cH-jH)/2+"PX";
+// console.log((cH-jH)/2+"PX")
+for(var i=0;i<lis.length;i++){
+	lis[i].index=i
+    lis[i].onclick=function(){
+	flag=false;
+	
+    animate(document.body,{scrollTop:floor[this.index].offsetTop},function(){flag=true})
+    animate(document.documentElement,{scrollTop:floor[this.index].offsetTop},function(){flag=true})
+    for(var j=0;j<lis.length;j++){
+    	lis[j].style.background="#f4f4f4"
+    	
+    }lis[this.index].style.background="red"
+}}
+}
+</script>
+<style type="text/css">
+.top{
+	
+	text-align: center;
+	width: 100%;
+	height: 40px;
+	background: red;
+	position:fixed;
+	top: -40px;
+}
+.top a{
+	width: 100px;
+	height: 100%;
+	display: block;
+	color: #fff;
+	float: left;
+}
+	.head{
+		width: 800px;
+		height: 300px;
+		margin: 0 auto;
+		background: #1592fa;
+	}
+	.floor1{
+		width: 900px;
+		height: 500px;
+		background: #fefefe;
+		margin: 10px auto;
+		text-align: center;
+	}
+	.floor2{
+		width: 900px;
+		height: 500px;
+		background: #fefefe;
+		margin: 10px auto;
+		text-align: center;
+	}
+	.floor3{
+		width: 900px;
+		height: 500px;
+		background: #fefefe;text-align: center;
+		margin: 10px auto;
+	}
+	.floor4{
+		width: 900px;
+		height: 500px;
+		background: #fefefe;
+		margin: 10px auto;text-align: center;
+	}
+	.floor5{
+		width: 900px;
+		height: 500px;
+		background: #fefefe;
+		margin: 10px auto;text-align: center
+	}
+	.flooter{
+		width: 800px;
+		height: 300px;
+		margin: 0 auto;
+		background: #1592fa;
+	}
+	.jump{
+             width: 30px;
+             height:150px;
+             position: fixed;
+             left: 60px;
+             top: 20px;
+             background:#f4f4f4;
+             padding: 0;
+             margin: 0;
+             list-style: none;
+	}
+	.jump li{
+		width: 30px;
+		height: 29px;
+		border-bottom: 1px dashed #ccc;
+		list-style: none;
+		margin: 0;
+		padding:0;
+		text-align: center;
+		line-height: 30px;
+		cursor: pointer;
+		color: black;
+
+	}
+	.bank{
+		width: 30px;
+		height: 30px;
+		position: fixed;
+		right: 30px;
+		bottom:30px;
+		background: red;
+	border-radius:4px;
+  box-shadow: 0px 3px 10px #ccc;
+  opacity:0
+	}
+</style>
+<body>
+    <div class="top">
+    	<a href="">1</a>
+    	  <a href="">2</a>
+    	  <a href="">3</a>
+    	  <a href="">4</a>
+    	  <a href="">5</a>  
+    </div>
+	<div class="head">head</div>
+	<div class="floor floor1">
+		<img src="" alt="" title="./image/banner1.jpg">
+	</div>
+	<div class="floor floor2">
+	    <img src="" alt="" title="./image/banner2.jpg">
+	</div>
+	<div class="floor floor3">
+	       <img src="" alt="" title="./image/banner3.jpg">
+	</div>
+	<div class="floor floor4">
+	      <img src="" alt="" title="./image/banner4.jpg">
+	</div>
+	<div class="floor floor5">
+	       <img src="" alt="" title="./image/banner5.jpg">
+	</div>
+	<div class="flooter">flooter</div>
+	<ul class="jump">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<div class="bank"></div>
+</body>
+</html>
