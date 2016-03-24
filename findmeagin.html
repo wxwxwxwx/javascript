@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head><style type="text/css">
+	.box{
+		width: 500px;
+		height: 500px;
+		border: 1px solid black;
+		position: relative;
+		margin:30px auto;
+
+	}
+	.xiao{
+		width: 50px;
+		height:50px;
+		border: 1px solid black;	
+		position: absolute;
+	}
+	.span{
+
+
+		width: 50px;
+		height:50px;
+		border: 1px solid black;	
+		position: absolute;
+	}
+li{
+	cursor: pointer;
+}
+</style>
+<body>
+	<div class="box"></div>
+	<ul>
+		<li data="id">通过id获取</li>
+		<li data="tg">通过tg获取</li>
+		<li data="qr">通过qr获取</li>
+		<li data="qa">通过qa获取</li>
+		<li data="cl">通过cl获取</li>
+	</ul>
+</body>
+<script>
+	
+	var box=document.querySelector('.box')
+	var drop=function(){
+		var rm=Math.floor(Math.random()*10)
+		for(var i=0,el;i<10;i++){
+			if(i===rm){
+				el=document.createElement('span')
+			}else {
+				el=document.createElement('div')
+			}
+			box.appendChild(el)
+			if(i===rm){
+				el.className="span"
+				el.id="span"
+			}else{
+				el.className="xiao"
+			}
+			el.style.left=Math.floor(Math.random()*(box.offsetWidth-el.offsetWidth))+"px"
+			el.style.top=Math.floor(Math.random()*(box.offsetHeight-el.offsetHeight))+"px"}
+		}
+		drop()
+		var lis=box.nextElementSibling.children
+		for (var i=0,el;i<lis.length;i++){
+		lis[i].onclick=function(){
+			var type=this.getAttribute("data")
+			if(type=='id'){
+				el=document.getElementById('span')
+			}else if(type=='cl'){
+				el=document.getElementsByClassName('span')[0]
+			}else if(type=='tg'){
+				el=document.getElementsByTagName('span')[0]           	
+			}else if(type=='qa'){
+				el=document.querySelectorAll('span')[0]          	
+			}else if(type=='qr'){
+				el=document.querySelector('span')         	
+			}
+			el.style.background="red"
+			var t=setTimeout(function(){
+				el.style.background="none"
+				while(box.lastElementChild){
+	              box.removeChild(box.lastElementChild)				
+				}
+				drop()
+			},500)
+		}
+	}
+</script>
+</html>
